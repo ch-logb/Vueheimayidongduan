@@ -10,6 +10,7 @@ import router from './router'
 import store from './store'
 import 'amfe-flexible'
 import './styles/base.less'
+import './utils/validation'
 import { Button, NavBar, Field, CellGroup, Cell, Toast, CountDown } from 'vant'
 Vue.use(NavBar)
   .use(Field)

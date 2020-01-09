@@ -3,6 +3,9 @@
     <!-- 导航栏 -->
     <van-nav-bar title="登录"></van-nav-bar>
     <!-- 表单 -->
+    <!-- 登录验证 -->
+    <!-- 用 ValidationObserver 把整个表单都包起来-->
+    <!-- 用ValidationProvider 把具体的表单元素包起来 input-->
     <van-cell-group>
       <van-field
         v-model="user.mobile"
@@ -15,9 +18,23 @@
         center
         clearable
         class="iconfont icon-mima"
-        placeholder="请输入短信验证码">
-        <van-count-down  v-if="isCountDownShow" slot="button" :time="1000 * 5" format="ss s" @finish="isCountDownShow = false" />
-        <van-button v-else slot="button" size="small" type="primary" round @click="onSendSmsCode">发送验证码</van-button>
+        placeholder="请输入短信验证码"
+      >
+        <van-count-down
+          v-if="isCountDownShow"
+          slot="button"
+          :time="1000 * 5"
+          format="ss s"
+          @finish="isCountDownShow = false"
+        />
+        <van-button
+          v-else
+          slot="button"
+          size="small"
+          type="primary"
+          round
+          @click="onSendSmsCode"
+        >发送验证码</van-button>
       </van-field>
     </van-cell-group>
     <!-- 登录按钮 -->
@@ -29,6 +46,10 @@
 
 <script>
 import { login, getSmsCode } from '@/api/user'
+import { extend } from 'vee-validate'
+extend('positive', value => {
+  return value >= 0
+})
 export default {
   name: 'LoginPage',
   components: {},
