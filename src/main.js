@@ -10,8 +10,14 @@ import router from './router'
 import store from './store'
 import 'amfe-flexible'
 import './styles/base.less'
-import { Button, NavBar, Field, CellGroup, Cell, Toast } from 'vant'
-Vue.use(NavBar).use(Field).use(CellGroup).use(Cell).use(Button).use(Toast)
+import { Button, NavBar, Field, CellGroup, Cell, Toast, CountDown } from 'vant'
+Vue.use(NavBar)
+  .use(Field)
+  .use(CellGroup)
+  .use(Cell)
+  .use(Button)
+  .use(Toast)
+  .use(CountDown)
 Vue.config.productionTip = false
 
 new Vue({
