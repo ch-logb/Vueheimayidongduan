@@ -1,22 +1,21 @@
 // 路由管理
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Login from '@/views/login'
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/login',
-    component: Login
-    // component: () => import('@/views/login')
+    name: 'login',
+    component: () => import('@/views/login')
   },
   {
     path: '/',
-    // name: 'tab-bar',
+    name: 'tab-bar',
     component: () => import('@/views/tabbar'),
     children: [
       {
-        path: 'home', // 默认子路由
+        path: '', // 默认子路由
         name: 'home',
         component: () => import('@/views/home')
       },

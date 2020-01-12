@@ -74,7 +74,7 @@ export default {
   methods: {
     async onLogin () {
       // 获取表单数据
-      // const user = this.user
+      const user = this.user
 
       // 表单验证
       const success = await this.$refs.form.validate()
@@ -104,14 +104,15 @@ export default {
       })
 
       try {
-        const res = await login(this.user)
+        const res = await login(user)
         // res.data.data =>{ token:'xxx', refresh_token:'xxx'}
         this.$store.commit('setUser', res.data.data)
         // 提示 success 或者 fail  的时候，会先把其他的toast 先清除
         this.$toast.success('登录成功')
-        console.log('登录成功', res)
+        // console.log('登录成功', res)
+        this.$router.push('/')
       } catch (err) {
-        console.log('登录失败', err)
+        // console.log('登录失败', err)
         this.$toast.fail('登录失败')
       }
       // 根据返回结果执行后续业务

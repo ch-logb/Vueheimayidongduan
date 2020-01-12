@@ -2,12 +2,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import { setItem, getItem } from '@/utils/storage'
+
+const USER_KEY = 'user'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
     // 登录用户，一个对象 包含token 信息
-    user: getItem('user')
+    user: getItem(USER_KEY)
     // user: null
   },
   mutations: {
