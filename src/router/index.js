@@ -11,7 +11,7 @@ const routes = [
   },
   {
     path: '/',
-    name: 'tab-bar',
+    // name: 'tab-bar',
     component: () => import('@/views/tabbar'),
     children: [
       {
@@ -35,8 +35,12 @@ const routes = [
         component: () => import('@/views/my')
       }
     ]
+  },
+  {
+    path: '/user/:userId',
+    name: 'user',
+    component: () => import('@/views/user')
   }
-
 ]
 const router = new VueRouter({
   routes

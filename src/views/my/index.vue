@@ -3,7 +3,7 @@
     <!-- 以登录 用户信息 -->
     <div class="user-info-wrap" v-if="$store.state.user">
       <div class="base-info-wrap">
-        <div class="avatar-title-wrap">
+        <div class="avatar-title-wrap" @click="toUserInfo">
           <van-image class="avatar" round fit="cover" src="https://img.yzcdn.cn/vant/cat.jpeg" />
           <div class="title">黑马程序员</div>
         </div>
@@ -76,6 +76,9 @@ export default {
   },
   mounted () {},
   methods: {
+    toUserInfo () {
+      this.$router.push(`/user/${this.user.id}`)
+    },
     async loadUser () {
       try {
         const { data } = await getUserInfo()

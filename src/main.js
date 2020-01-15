@@ -11,7 +11,7 @@ import store from './store'
 import 'amfe-flexible'
 import './styles/base.less'
 import './utils/validation'
-import { Button, NavBar, Field, CellGroup, Cell, Toast, CountDown, Tabbar, TabbarItem, Image, Grid, GridItem, Icon, Dialog } from 'vant'
+import { Button, NavBar, Field, CellGroup, Cell, Toast, CountDown, Tabbar, TabbarItem, Image, Grid, GridItem, Icon, Dialog, List } from 'vant'
 Vue.use(NavBar)
   .use(Field)
   .use(CellGroup)
@@ -26,6 +26,7 @@ Vue.use(NavBar)
   .use(GridItem)
   .use(Icon)
   .use(Dialog)
+  .use(List)
 Vue.config.productionTip = false
 
 new Vue({
